@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <!--
+    
+    SnowboardingInColorado A-Basin Page
+    Author: Brandon Velasquez
+    Date: 2/3/24  
+
+    Filename: SnowboardingInColorado_A-Basin.html
+   -->
+   <meta charset="utf-8" />
+   <title>SnowboardingInColorado A-Basin</title>
+
+   <link rel="stylesheet" href="resort_layout.css">
+   <link rel="stylesheet" href="styles.css">
+
+      <!-- Custom Carousel CSS -->
+      <style>
+         .carousel-container {
+            overflow: hidden;
+         }
+   
+         .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease;
+         }
+   
+         .carousel-item {
+            flex: 0 0 auto;
+            margin-right: 20px; /* Adjust as needed */
+         }
+      </style>
+</head>
+
+<body>
+   <header>
+      <section id="section1">
+         <div class="header-container">
+             <h1 class="title">Arapahoe Basin</h1>
+             <div class="dropdown">
+                 <button class="menu-btn">&#9776;</button>
+                 <div class="dropdown-content">
+                     <a href="SnowboardingInColorado_home.html">Home</a>
+                     <div class="submenu">
+                         <a href="SnowboardingInColorado_breck.html">Breckenridge</a>
+                         <a href="SnowboardingInColorado_keystone.html">Keystone</a>
+                         <a href="SnowboardingInColorado_Copper.html">Copper</a>
+                     </div>
+                 </div>
+             </div>
+             <img src="SnowboardingInColorado_logo.png" alt="SnowboardingInColorado" class="logo" style="max-width: 75px;"/>
+         </div>
+     </section>
+   
+      <script>
+document.querySelector('.menu-btn').addEventListener('click', function(event) {
+    const submenu = document.querySelector('.submenu');
+    submenu.classList.toggle('show-submenu');
+});
+
+document.addEventListener('click', function(event) {
+    const dropdown = document.querySelector('.dropdown');
+    const submenu = document.querySelector('.submenu');
+    if (!dropdown.contains(event.target) && !submenu.contains(event.target)) {
+        submenu.classList.remove('show-submenu');
+    }
+});
+
+     </script>
+   </header>
+   <section id="section2">
+      <div class="container">
+          <div class="carousel-container">
+              <div class="carousel-track">
+               <div class="carousel-item">
+                  <img src="A-Basin_page_images/ABasin.jpg" alt="Image">
+               </div>
+                  <div class="carousel-item">
+                      <img src="A-Basin_page_images/ABasin2.jpg" alt="Image 2">
+                  </div>
+                  <div class="carousel-item">
+                      <img src="A-Basin_page_images/ABasin3.jpg" alt="Image 3">
+                  </div>
+                  <div class="carousel-item center">
+                      <iframe width="100%" height="400px" src="https://www.youtube.com/embed/SCXV6hVtSNs" frameborder="0" allowfullscreen></iframe>
+                  </div>
+                  <div class="carousel-item">
+                     <img src="A-Basin_page_images/ABasin4.jpg" alt="Image 4">
+                 </div>
+                 <div class="carousel-item">
+                  <img src="A-Basin_page_images/ABasin5.jpg" alt="Image 5">
+                 </div>
+              <div class="carousel-item">
+               <img src="A-Basin_page_images/ABasin6.jpg" alt="Image 6">
+               </div>
+              </div>
+          </div>
+          <!-- Carousel controls -->
+          <a class="carousel-control-prev" href="#" role="button" onclick="prevSlide()"></a>
+          <a class="carousel-control-next" href="#" role="button" onclick="nextSlide()"></a>
+      </div>
+  </section>
+  
+   <section id="section3">
+      <p> A-Basin | Activities</p>
+         <div class="list-container">
+             <div class="list">
+                 <ul>
+                     <li>March 1st, 6th Alley Dinner - Supper Club</li>
+                     <li>March 2nd, Wild and Scenic Film Festival</li>
+                     <li>March 9th, Summit Foundation 40th Anniversary Dinner</li>
+                 </ul>
+             </div>
+             <div class="list">
+                 <ul>
+                     <li>March 10th, Mammut Stampede Series Stop #2</li>
+                     <li>March 10th, Rossignol x A-Basin Women's Ski and Snowboard Day</li>
+                     <li>March 23rd, Moonlight Dinner Series #4</li>
+                 </ul>
+             </div>
+         </div>    
+   </section>
+
+   <footer>
+      <a href="ContactAbout.html">Contact</a>|&#169; SnowboardingInColorado 2024 |<a href="ContactAbout.html">About</a>
+   </footer>
+   
+      <!-- Custom Carousel JavaScript -->
+      <script>
+         const track = document.querySelector('.carousel-track');
+         const items = Array.from(document.querySelectorAll('.carousel-item'));
+   
+         const itemWidth = items[0].getBoundingClientRect().width;
+   
+         // Set initial position
+         items.forEach((item, index) => {
+            item.style.left = `${itemWidth * index}px`;
+         });
+   
+         let counter = 0;
+   
+         function nextSlide() {
+            counter++;
+            moveSlide();
+         }
+   
+         function prevSlide() {
+            counter--;
+            moveSlide();
+         }
+   
+         function moveSlide() {
+            track.style.transform = `translateX(${-itemWidth * counter}px)`;
+         }
+      </script>
+   <!-- Include the CarouselCycle JavaScript -->
+   <script src="CarouselCycle.js"></script>
+</body>
+</html>

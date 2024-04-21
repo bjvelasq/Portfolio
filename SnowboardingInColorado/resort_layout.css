@@ -1,0 +1,258 @@
+@charset "utf-8";
+
+/*
+   
+   Layout Styles for SnowboardingInColorado_home
+   
+   Filename: home_layout.css
+
+*/
+
+/* HTML and Body Styles */
+
+html {
+	height: 100%;
+	font-size: 12px;
+	font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, sans-serif;
+}
+
+body {
+
+}
+
+.logo {
+    display: block;
+    max-width: 150px;
+    position: absolute;
+    top: 10px; /* Adjust top position as needed */
+    right: 10px; /* Adjust right position as needed */
+}
+#main-container {
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+    padding: 10px; /* Decrease padding to reduce space between content and container */
+    border-radius: 5px; /* Decrease border-radius for a slightly softer look */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Decrease box shadow for a subtle effect */
+    margin: 20px; /* Add margin to the main container */
+    top: -100px;
+}
+.menu-btn {
+    color: #93B5C6;
+    position: absolute;
+    top: -100px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 125px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 1;
+    top: -100px;
+}
+
+/* Header Styles */
+
+body > header > img {
+	display: block;
+	width: 5%;
+	float: right;
+}
+
+/* Links Inside Dropdown */
+.dropdown-content a {
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+}
+
+/* Change color of Dropdown with hover */
+.dropdown-content a:hover {
+	background-color: #ddd;
+}
+
+/* Show the dropdown on hover */
+.dropdown:hover .dropdown-content {
+	display: block;
+}
+
+/* Show submenu */
+.submenu.show-submenu {
+	display: block !important;
+}
+
+/* Hide submenu when mouse leaves */
+.dropdown-content:hover .submenu {
+	display: block;
+}
+
+section {
+	padding: 30px 0;
+	color: white;
+}
+
+#section1 {
+    background-color: #941C2F;
+    height: 50px; /* Adjust the height as needed */
+    /*padding: 10px 0; Adjust the padding as needed */
+	
+}
+
+.title {
+    text-align: center;
+    font-weight: bold;
+	color: #93B5C6;
+}
+
+
+#section2 {
+	background-color: #3E517A;
+	min-height: 320px;
+}
+
+#section3 {
+    background-color: #941C2F;
+    min-height: 320px;
+    text-align: center;
+    font-size: x-large;
+    color: #DDEDAA;
+}
+
+.list-container {
+    display: flex;
+    justify-content: space-around;
+    background-color: rgba(128, 128, 128, 0.5); /* Semi-transparent gray */
+    padding: 20px;
+}
+
+.list {
+    width: 45%; /* Adjust width as needed */
+    padding: 10px;
+    border-radius: 5px;
+    background-color: white; /* Background color for the list */
+    color: #3E517A;
+    font-size: large;
+}
+
+.list h2 {
+    margin-top: 0;
+    color: #941C2F; /* Adjust title color */
+}
+
+footer {
+	background-color: #424B54;
+	text-align: center;
+	padding: 20px 0;
+	color: #DDEDAA;
+	min-height: 75px;
+}
+/* Adjust carousel container and track to display items horizontally */
+.carousel-container {
+	overflow: hidden;
+	position: relative; /* Ensure positioning of the center item */
+ }
+ 
+ .carousel-track {
+	display: flex;
+	transition: transform 0.5s ease;
+ }
+ 
+ .carousel-item {
+	flex: 0 0 auto;
+	margin-right: 20px; /* Adjust as needed */
+ }
+ 
+ .center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+ }
+
+ /* Center carousel controls */
+.carousel-control-prev,
+.carousel-control-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2; /* Ensure they are above the carousel items */
+}
+
+.carousel-control-prev {
+    left: 20px; /* Adjust as needed */
+}
+
+.carousel-control-next {
+    right: 20px; /* Adjust as needed */
+}
+/* Resize carousel images */
+.carousel-item img {
+    width: 400px;
+    height: 300px;
+}
+/* Remove padding between carousel items */
+.carousel-item {
+	margin-right: 0; /* Remove margin between items */
+ }
+
+/* Customize carousel control buttons */
+.carousel-control-prev,
+.carousel-control-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2; /* Ensure they are above the carousel items */
+    color: #DDEDAA; /* Set color */
+    font-size: 208px; /* Adjust font size to make arrows larger */
+    text-decoration: none; /* Remove default underline */
+    background-color: transparent; /* Remove default background */
+    border: none; /* Remove default border */
+    cursor: pointer; /* Set cursor to pointer */
+}
+
+.carousel-control-prev {
+    left: 20px; /* Adjust left position */
+}
+
+.carousel-control-next {
+    right: 20px; /* Adjust right position */
+}
+
+.carousel-control-prev::before,
+.carousel-control-next::after {
+    content: '\2039'; /* Unicode for left arrow */
+    font-family: Arial, sans-serif; /* Use a font that supports arrows */
+}
+
+.carousel-control-next::after {
+    content: '\203A'; /* Unicode for right arrow */
+}
+/* Center the embedded link */
+.carousel-item.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    text-align: center;
+    font-size: xx-large;
+    color: #DDEDAA;
+}
+
+h2 {
+    text-align: center;
+    font-size: xx-large;
+    color: #941C2F;
+}
+
+h3 {
+    text-align: center;
+    font-size: xx-large;
+    color: #93B5C6;
+}

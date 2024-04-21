@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <!--
+    
+    SnowboardingInColorado Home Page
+    Author: Brandon Velasquez
+    Date: 2/3/24  
+
+    Filename: SnowboardingInColorado_home.html
+   -->
+   <!DOCTYPE html>
+   <html lang="en">
+   <head>
+      <!--
+       
+       SnowboardingInColorado Home Page
+       Author: Brandon Velasquez
+       Date: 2/3/24  
+   
+       Filename: SnowboardingInColorado_home.html
+      -->
+      <meta charset="utf-8" />
+      <title>SnowboardingInColorado</title>
+   
+      <link rel="stylesheet" href="home_layout.css">
+      <link rel="stylesheet" href="styles.css">
+   </head>
+   
+   <body>
+      <div id="main-container">
+      <header>
+         <section id="section1">
+            <div class="container">
+               <img src="SnowboardingInColorado_logo.png" alt="SnowboardingInColorado" class="logo" style="max-width: 75px;"/>
+               <h1>SNOWBOARDINGINCOLORADO</h1>
+               <div class="dropdown">
+                  <button class="menu-btn">&#9776;</button>
+                  <div class="dropdown-content">
+                     <a href="resorts.html">Resorts</a>
+                     <div class="submenu">
+                        <a href="SnowboardingInColorado_breck.html">Breckenridge</a>
+                        <a href="SnowboardingInColorado_keystone.html">Keystone</a>
+                        <a href="SnowboardingInColorado_A-Basin.html">A-Basin</a>
+                        <a href="SnowboardingInColorado_Copper.html">Copper</a>
+                     </div>
+                     <a href="ContactAbout.html">Contact</a>
+                     <a href="ContactAbout.html">About</a>
+                  </div>
+               </div>
+            </div>
+         </section>
+      </header>
+   
+      <section id="section2">
+         <div class="container">
+             <div class="grid-container">
+                 <div class="left-quadrant">
+                     <h2>One Stop Shop for Summit County</h2>
+                 </div>
+                 <div class="right-quadrant">
+                     <div class="image-container">
+                         <img src="Keystone_home.jpg" alt="Image 1" class="image" data-caption="Keystone">
+                         <img src="A-Basin_Home.jpg" alt="Image 2" class="image" data-caption="A-Basin">
+                         <img src="copper-mountain_home.jpg" alt="Image 3" class="image" data-caption="Copper Mountain">
+                         <img src="Breck_home.jpg" alt="Image 4" class="image" data-caption="Breckenridge">
+                     </div>
+                     <div class="shuffle-buttons">
+                         <button id="prev-btn">&lt;</button>
+                         <button id="next-btn">&gt;</button>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </section>
+     
+      
+     <section id="section3">
+      <div class="container">
+          <h2>Vote for Your Favorite Resort</h2>
+          <form id="poll-form">
+              <label>
+                  <input type="radio" name="resort" value="Keystone"> Keystone
+              </label><br>
+              <label>
+                  <input type="radio" name="resort" value="A-Basin"> A-Basin
+              </label><br>
+              <label>
+                  <input type="radio" name="resort" value="Copper Mountain"> Copper Mountain
+              </label><br>
+              <label>
+                  <input type="radio" name="resort" value="Breckenridge"> Breckenridge
+              </label><br>
+              <button type="submit">Vote</button>
+          </form>
+          <div id="poll-results">
+              <h3>Poll Results:</h3>
+              <ul id="results-list"></ul>
+          </div>
+      </div>
+  </section>
+  
+   
+      <footer>
+         <p>&#169;SnowboardingInColorado 2024</p>
+      </footer>
+   
+      <script src="home_script.js"></script>
+   </body>
+   </div>
+   </html>
+   

@@ -1,0 +1,262 @@
+@charset "utf-8";
+
+/*
+   
+   Layout Styles for SnowboardingInColorado_home
+   
+   Filename: home_layout.css
+
+*/
+
+/* HTML and Body Styles */
+
+/* General Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, sans-serif;
+    background-color: #424B54;
+    color: white;
+}
+
+#main-container {
+    background-color: rgba(255, 255, 255, 0.9); 
+    padding: 10px; 
+    border-radius: 5px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin: 20px; 
+}
+
+.container {
+    width: 100%; 
+    margin: 0 auto; 
+}
+
+/* Header Styles */
+header {
+    background-color: #424B54;
+    padding: 10px 0; 
+}
+
+.logo {
+    display: block;
+    max-width: 75px;
+    float: right;
+}
+
+h1 {
+    text-align: center;
+    margin: 0;
+    font-size: xx-large;
+    color: #72121D;
+}
+
+h2 {
+    text-align: left;
+    margin: 50px auto; /* Adjust the margin-top value to move it down */
+    font-size: x-large;
+    color: #DDEDAA;
+    border-top: 95px;
+    display: flex;
+    align-items: center;
+}
+
+h3 {
+    text-align: center;
+    margin: 0;
+    font-size: x-large;
+    color: #DDEDAA;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.menu-btn {
+    color: #941C2F;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Sections */
+section {
+    padding: 20px 0; 
+}
+
+#section2 {
+    background-color: #3E517A;
+}
+
+#section3 {
+    background-color: #93B5C6;
+}
+
+footer {
+    background-color: #941C2F;
+    text-align: center;
+    padding: 10px 0;
+}
+
+/* Images */
+.image-container {
+    position: relative; 
+    width: 600px;
+    height: 500px;
+    overflow: hidden; 
+    margin: 0 auto; 
+}
+
+.image-container img {
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    transition: opacity 0.5s ease; 
+}
+
+/* Adjust the positions of subsequent images to overlap */
+.image-container img:nth-child(2) {
+    left: 20%; /* Adjust left position to overlap with the first image */
+}
+
+.image-container img:nth-child(3) {
+    left: 40%; 
+}
+
+.image-container img:nth-child(4) {
+    left: 60%; 
+}
+
+.right-quadrant {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+/* Shuffle Buttons */
+.shuffle-buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center; 
+}
+
+.shuffle-buttons button {
+    background-color: #941C2F;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.shuffle-buttons button:hover {
+    background-color: #72121D;
+}
+
+/* Caption Styles */
+.image-caption {
+    position: absolute;
+    top: 10px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    font-size: 18px;
+    color: #DDEDAA;
+    opacity: 0; 
+    transition: opacity 0.5s ease; 
+}
+
+/* Show caption when image is at front */
+.image.front .image-caption {
+    opacity: 1;
+}
+/* Styles for poll */
+#section3 {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    height: 100%; 
+}
+
+#section3 .container {
+    width: 100%;
+    max-width: 600px; /* Limit maximum width to prevent excessive stretching */
+}
+
+#poll-form {
+    margin-bottom: 20px;
+}
+
+#poll-results {
+    margin-top: 20px;
+    text-align: left;
+}
+
+#results-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+#results-list li {
+    margin-bottom: 10px;
+}
+
+/* Add windowed look */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        repeating-linear-gradient(
+            -45deg, 
+            rgba(255, 255, 255, 0.1), 
+            rgba(255, 255, 255, 0.1) 10px, 
+            transparent 10px, 
+            transparent 20px
+        ),
+        repeating-linear-gradient(
+            45deg, 
+            rgba(255, 255, 255, 0.1), 
+            rgba(255, 255, 255, 0.1) 10px, 
+            transparent 10px, 
+            transparent 20px
+        );
+    pointer-events: none; 
+    z-index: -1; 
+}
+
+/* Styles for poll */
+#section3 .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
+    text-align: center;
+}

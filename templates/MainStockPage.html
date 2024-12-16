@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StockSphere - All Stocks</title>
+    <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
+</head>
+<body>
+<header>
+    <div class="logo">StockSphere</div>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('stock_page') }}">Stocks</a></li>
+            <li><a href="{{ url_for('portfolio') }}">My Portfolio</a></li>
+            <li><a href="{{ url_for('transaction_history') }}">Transaction History</a></li>
+            <li><a href="{{ url_for('contact') }}">Contact Us</a></li>
+            <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <h1>All Stocks Available on StockSphere</h1>
+    <section class="popular-stocks">
+        <div class="stock-grid">
+            <!-- Loop through each stock and display it -->
+            {% for stock in stocks %}
+                <div class="stock-item">
+                    <div class="stock-graph">
+                        <!-- Placeholder for a graph -->
+                        <img src="graph-placeholder.jpg" alt="Stock Graph">
+                    </div>
+                    <div class="stock-info">
+                        <h3><a href="{{ url_for('stock', stock_symbol=stock['stock_code']) }}">{{ stock['stock_name'] }} ({{ stock['stock_code'] }})</a></h3>
+                        <p>Price: ${{ stock['price'] }}</p>
+                        <p>High: ${{ stock['high_price'] if stock['high_price'] else 'N/A' }}</p>
+                        <p>Low: ${{ stock['low_price'] if stock['low_price'] else 'N/A' }}</p>
+                    </div>
+                </div>
+            {% else %}
+                <p>No stocks available.</p>
+            {% endfor %}
+        </div>
+    </section>
+</main>
+
+<footer>
+    <hr>
+    <div class="logo">StockSphere</div>
+</footer>
+</body>
+</html>

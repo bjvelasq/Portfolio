@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>StockSphere - Home</title>
+    <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
+</head>
+<body>
+
+<!-- Header -->
+<header>
+    <div class="logo">StockSphere</div>
+    <nav>
+      <ul>
+        <li><a href="{{ url_for('stock_page') }}">Stocks</a></li>
+          <li><a href="{{ url_for('portfolio') }}">My Portfolio</a></li>
+          <li><a href="{{ url_for('transaction_history') }}">Transaction History</a></li>
+          <li><a href="{{ url_for('contact') }}">Contact Us</a></li>
+          <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+      </ul>
+    </nav>
+</header>
+
+<!-- Main Content -->
+<main>
+  <!-- Website Name and Slogan -->
+  <section class="intro">
+    <h1>StockSphere</h1>
+    <p>Your gateway to financial freedom</p>
+  </section>
+
+  <!-- News Block -->
+  <section class="news">
+    <h2>Latest Financial News</h2>
+    <div class="news-content">
+      <article>
+        <h3>Bitcoin Reaches New Heights</h3>
+        <p>Bitcoin has reach new highs, approaching 100,000$ per unit throughout the past week. Many people were eagerly awaiting this time to sell, but many others are holding to await supposed higher leaps in value before the end of the year...</p>
+      </article>
+      <article>
+        <h3>Boeing Still Low</h3>
+        <p>Boeing is still wrapped in controversy following multiple whistleblowers earlier this year, with stock prices still not fully recovering to what they were prior to the leaks...</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Popular Stocks Grid -->
+  <section class="popular-stocks">
+    <h2>Popular Stocks</h2>
+    <div class="stock-grid">
+        {% for stock in stocks %}
+        <div class="stock-item">
+            <div class="stock-graph">
+                <!-- Placeholder for a graph -->
+                <img src="graph-placeholder.jpg" alt="Stock Graph">
+            </div>
+            <div class="stock-info">
+                <h3><a href="{{ url_for('stock', stock_symbol=stock.symbol) }}">{{ stock.name }} ({{ stock.symbol }})</a></h3>
+                <p>Price: ${{ stock.price }}</p>
+                <p>Change: {{ stock.change }}%</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+  </section>
+
+  <!-- Horizontal Line and Logo -->
+  <hr>
+  <footer>
+    <div class="footer-logo">StockSphere</div>
+  </footer>
+</main>
+</body>
+</html>

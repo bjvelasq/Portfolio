@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StockSphere - {{ stock.name }}</title>
+    <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
+</head>
+<body>
+<header>
+    <div class="logo">StockSphere</div>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('home_logged_in') }}">Home</a></li>
+            <li><a href="{{ url_for('portfolio') }}">My Portfolio</a></li>
+            <li><a href="{{ url_for('transaction_history') }}">Transaction History</a></li>
+            <li><a href="{{ url_for('contact') }}">Contact Us</a></li>
+            <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <div class="stock-info">
+        <h1>{{ stock.name }} ({{ stock.symbol }})</h1>
+        <div class="stock-details">
+            <div class="stock-value">
+                <h2>Current Value</h2>
+                <p>${{ stock.price }}</p>
+            </div>
+            <div class="stock-quantity">
+                <h2>Quantity Available</h2>
+                <p>{{ stock.quantity_available if stock.quantity_available else '0' }} units</p>
+            </div>
+        </div>
+
+        <div class="stock-actions">
+            <!-- Buy Stock Form -->
+            <form action="{{ url_for('buy_stock_route') }}" method="POST">
+                <input type="hidden" name="stock_symbol" value="{{ stock.symbol }}">
+                <label for="quantity_buy">Quantity to Buy:</label>
+                <input type="number" id="quantity_buy" name="quantity" min="1" max="{{ stock.quantity_available }}" required>
+                <button type="submit" class="buy-button">Buy</button>
+            </form>
+
+            <!-- Sell Stock Form -->
+            <form action="{{ url_for('sell_stock_route') }}" method="POST">
+                <input type="hidden" name="stock_symbol" value="{{ stock.symbol }}">
+                <label for="quantity_sell">Quantity to Sell:</label>
+                <input type="number" id="quantity_sell" name="quantity" min="1" required>
+                <button type="submit" class="sell-button">Sell</button>
+            </form>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <hr>
+    <div class="logo">StockSphere</div>
+</footer>
+</body>
+</html>

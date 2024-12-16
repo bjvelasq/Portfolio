@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>StockSphere - Login</title>
+    <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
+</head>
+<body>
+<!-- Header -->
+<header>
+    <div class="logo">StockSphere</div>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('stock_page') }}">Stocks</a></li>
+            <li><a href="{{ url_for('portfolio') }}">My Portfolio</a></li>
+            <li><a href="{{ url_for('transaction_history') }}">Transaction History</a></li>
+            <li><a href="{{ url_for('contact') }}">Contact Us</a></li>
+            <li><a href="{{ url_for('login') }}">Sign In</a></li>
+            <li><a href="{{ url_for('signup') }}">Register</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- Login Form -->
+<main>
+    <section class="form-section">
+        <h1>Login</h1>
+        
+        <!-- Display Error Message -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <ul>
+                    {% for category, message in messages %}
+                        <li style="color: red;">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+
+        <form action="{{ url_for('login') }}" method="POST">
+            {{ form.csrf_token }}
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+        
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <input type="submit" value="Login">
+        </form>        
+
+        <p>Don't have an account? <a href="signup.html">Sign up here</a>.</p>
+    </section>
+</main>
+</body>
+</html>

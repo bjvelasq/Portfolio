@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StockSphere - Transaction History</title>
+    <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
+</head>
+<body>
+<header>
+    <div class="logo">StockSphere</div>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('stock_page') }}">Stocks</a></li>
+            <li><a href="{{ url_for('portfolio') }}">My Portfolio</a></li>
+            <li><a href="{{ url_for('transaction_history') }}">Transaction History</a></li>
+            <li><a href="{{ url_for('contact') }}">Contact Us</a></li>
+            <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <h1>Transaction History</h1>
+    <p>Here are all the transactions completed by your account:</p>
+
+    <!-- Transaction Table -->
+    <div class="transaction-table">
+        <table>
+            <thead>
+            <tr>
+                <th>Date</th>
+                <th>Transaction Type</th>
+                <th>Amount</th>
+                <th>Ticker</th>
+                <th>Quantity</th>
+            </tr>
+            </thead>
+            <tbody>
+                {% for transaction in transactions %}
+                <tr>
+                    <td>{{ transaction.timestamp }}</td>
+                    <td>{{ transaction.transaction_type | capitalize }}</td>
+                    <td>${{ transaction.amount }}</td>
+                    <td>{{ transaction.stock_code }}</td>
+                    <td>{{ transaction.quantity }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>                    
+        </table>
+    </div>
+</main>
+
+<footer>
+    <hr>
+    <div class="logo">StockSphere</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StockSphere - Admin Dashboard</title>
+  <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
+</head>
+<body>
+<header>
+  <div class="logo">StockSphere</div>
+  <nav>
+    <ul>
+      <li><a href="/admin-dashboard">Admin Home</a></li>
+      <li><a href="{{ url_for('logout') }}">Logout</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <h1>Admin Dashboard</h1>
+  <div class="admin-container">
+    <!-- Market Hours Section -->
+    <div class="option edit-market">
+      <h2>Edit Market</h2>
+    </div>
+    <div id="market-hours-dropdown" style="margin-top: 20px;">
+      <form id="market-hours-form">
+        <label for="opening-hours">Opening Hours (GMT):</label>
+        <input type="time" id="opening-hours" name="opening_hours" required>
+
+        <label for="closing-hours" style="margin-left: 20px;">Closing Hours (GMT):</label>
+        <input type="time" id="closing-hours" name="closing_hours" required>
+
+        <button type="submit">Confirm</button>
+      </form>
+    </div>
+
+    <!-- Add/Edit/Remove Stock Section -->
+    <div class="option add-edit-remove">
+      <h2>Add/Edit/Remove Stock</h2>
+    </div>
+    <div id="stock-options-dropdown" style="margin-top: 20px;">
+      <!-- Add Stock Section -->
+      <div id="add-stock-dropdown" style="margin-top: 20px;">
+        <h3>Add Stock</h3>
+          <form id="add-stock-form" action="/add-stock" method="POST">
+          <label for="add-stock-name">Stock Name:</label>
+        <input type="text" id="add-stock-name" name="stock_name" required>
+
+        <label for="add-ticker">Ticker:</label>
+        <input type="text" id="add-ticker" name="stock_code" required>
+
+        <label for="add-starting-value">Starting Value:</label>
+        <input type="number" step="0.01" id="add-starting-value" name="price" required>
+
+        <label for="add-high-price">High Price:</label>
+        <input type="number" step="0.01" id="add-high-price" name="high_price" required>
+
+        <label for="add-low-price">Low Price:</label>
+        <input type="number" step="0.01" id="add-low-price" name="low_price" required>
+
+        <div>
+          <label for="add-quantity_available">Quantity Available:</label>
+          <input type="number" step="0.01" id="add-quantity_available" name="quantity_available" required>
+
+          <button type="submit">Confirm</button>
+        </div>
+        </form>
+      </div>
+
+      <!-- Edit Stock Section -->
+      <div id="edit-stock-dropdown" style="margin-top: 20px;">
+        <h3>Edit Stock</h3>
+        <form id="edit-stock-form" action="/edit-stock" method="POST">
+          <label for="edit-ticker">Stock Ticker:</label>
+          <input type="text" id="edit-ticker" name="stock_code" required>
+
+          <label for="edit-stock-name">Stock Name:</label>
+          <input type="text" id="edit-stock-name" name="stock_name" required>
+
+          <label for="edit-starting-value">Current Value:</label>
+          <input type="number" id="edit-starting-value" name="price" required>
+          
+          <button type="submit">Confirm</button>
+        </form>
+      </div>
+
+      <!-- Remove Stock Section -->
+      <div id="remove-stock-dropdown" style="margin-top: 20px;">
+        <h3>Remove Stock</h3>
+        <form id="remove-stock-form" action="/remove-stock" method="POST">
+          <label for="remove-ticker">Stock Ticker:</label>
+          <input type="text" id="remove-ticker" name="stock_code" required>
+          <button type="submit">Confirm</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <hr>
+  <div class="logo">StockSphere</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StockSphere - My Portfolio</title>
+    <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
+</head>
+<body>
+<header>
+    <a href="{{ url_for('home_logged_in') }}" class="logo-link">
+        <li>StockSphere</li>
+    </a>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('stock_page') }}">Stocks</a></li>
+            <li><a href="{{ url_for('portfolio') }}">My Portfolio</a></li>
+            <li><a href="{{ url_for('transaction_history') }}">Transaction History</a></li>
+            <li><a href="{{ url_for('contact') }}">Contact Us</a></li>
+            <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <h1>My Portfolio</h1>
+    <div class="portfolio-overview">
+        <div class="asset-summary">
+            <h2>Total Assets</h2>
+            <p>${{ total_assets | round(2) }}</p> <!-- Display total assets rounded to 2 decimal places -->
+        </div>
+        <div class="cash-balance">
+            <h2>Cash Balance</h2>
+            <p>${{ balance | round(2) }}</p> <!-- Display cash balance rounded to 2 decimal places -->
+        </div>
+    </div>
+
+    <div class="deposit-section">
+        <h2>Deposit Funds</h2>
+        <form action="{{ url_for('deposit') }}" method="POST">
+            <label for="deposit-amount">Amount to Deposit:</label>
+            <input type="number" id="deposit-amount" name="amount" min="0.01" step="0.01" required>
+            <button type="submit">Deposit</button>
+        </form>
+    </div>
+
+    <div class="portfolio-graph">
+        <h2>Portfolio Value Changes</h2>
+        <img src="graph_placeholder.png" alt="Graph showing portfolio value changes" class="portfolio-graph-img">
+    </div>
+
+    <h2>Owned Stocks</h2>
+    <div class="stock-grid">
+        {% if owned_stocks %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Symbol</th>
+                        <th>Name</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Total Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for stock in owned_stocks %}
+                        <tr>
+                            <td>{{ stock.symbol }}</td>
+                            <td>{{ stock.name }}</td>
+                            <td>{{ stock.quantity }}</td>
+                            <td>${{ stock.price | round(2) }}</td>
+                            <td>${{ stock.total_value | round(2) }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>You don't own any stocks yet.</p>
+        {% endif %}
+    </div>    
+</main>
+
+<footer>
+    <hr>
+    <div class="logo">StockSphere</div>
+</footer>
+</body>
+</html>
